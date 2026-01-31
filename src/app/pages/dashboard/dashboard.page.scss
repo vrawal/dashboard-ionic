@@ -1,0 +1,137 @@
+.dashboard-container {
+  padding: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Stats Grid - Responsive */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Desktop specific */
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 576px) and (max-width: 767px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  margin: 0;
+  
+  ion-card-content {
+    padding: 20px;
+  }
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: var(--ion-color-light);
+  
+  ion-icon {
+    font-size: 32px;
+  }
+}
+
+.stat-details {
+  flex: 1;
+}
+
+.stat-title {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: var(--ion-color-medium);
+  font-weight: 500;
+}
+
+.stat-value {
+  margin: 0 0 4px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ion-color-dark);
+}
+
+.stat-trend {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ion-color-success);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  
+  ion-icon {
+    font-size: 14px;
+  }
+}
+
+/* Chart Placeholder */
+.chart-placeholder {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--ion-color-medium);
+  
+  ion-icon {
+    margin-bottom: 16px;
+  }
+  
+  p {
+    margin: 0;
+  }
+}
+
+/* Activity Content */
+.activity-content {
+  padding: 0;
+  
+  ion-list {
+    padding: 0;
+  }
+  
+  ion-item {
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+  }
+}
+
+/* Actions Grid */
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .actions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Cards spacing */
+ion-card {
+  margin-bottom: 16px;
+}
+
+ion-card:last-child {
+  margin-bottom: 0;
+}

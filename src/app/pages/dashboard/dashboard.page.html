@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refreshDashboard($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="dashboard-container">
+    <!-- Stats Cards Grid -->
+    <div class="stats-grid">
+      <ion-card *ngFor="let stat of stats" class="stat-card">
+        <ion-card-content>
+          <div class="stat-content">
+            <div class="stat-icon" [attr.color]="stat.color">
+              <ion-icon [name]="stat.icon" [color]="stat.color"></ion-icon>
+            </div>
+            <div class="stat-details">
+              <h3 class="stat-title">{{ stat.title }}</h3>
+              <h2 class="stat-value">{{ stat.value }}</h2>
+              <p class="stat-trend" *ngIf="stat.trend">
+                <ion-icon name="trending-up-outline" color="success"></ion-icon>
+                {{ stat.trend }}
+              </p>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Charts Section -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Performance Overview</ion-card-title>
+        <ion-card-subtitle>Last 30 days</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="chart-placeholder">
+          <ion-icon name="bar-chart-outline" size="large" color="medium"></ion-icon>
+          <p>Chart visualization would go here</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Recent Activity -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Recent Activity</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="activity-content">
+        <ion-list>
+          <ion-item *ngFor="let activity of recentActivities" lines="full">
+            <ion-icon [name]="activity.icon" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h3>{{ activity.user }}</h3>
+              <p>{{ activity.action }}</p>
+            </ion-label>
+            <ion-note slot="end">{{ activity.time }}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Quick Actions -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Quick Actions</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="actions-grid">
+          <ion-button expand="block" fill="outline">
+            <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+            Add New
+          </ion-button>
+          <ion-button expand="block" fill="outline">
+            <ion-icon slot="start" name="download-outline"></ion-icon>
+            Export Data
+          </ion-button>
+          <ion-button expand="block" fill="outline">
+            <ion-icon slot="start" name="settings-outline"></ion-icon>
+            Settings
+          </ion-button>
+          <ion-button expand="block" fill="outline">
+            <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+            Help
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
