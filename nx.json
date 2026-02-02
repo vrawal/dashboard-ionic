@@ -65,5 +65,6 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.cjs"
     ]
-  }
+  },
+  "nxCloudId": "697fe97b20a80a10eb884a12"
 }
